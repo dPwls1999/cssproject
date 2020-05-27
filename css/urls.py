@@ -24,7 +24,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', capp.views.home, name="home"),
-    path('detail/', capp.views.detail, name="detail"),
+    path('detail/<int:css_id>', capp.views.detail, name="detail"),
     path('edit/', capp.views.edit, name="edit"),
     path('mainpage/', capp.views.mainpage, name="mainpage"),
     path('review/', capp.views.review, name="review"),
