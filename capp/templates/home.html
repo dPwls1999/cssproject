@@ -9,17 +9,24 @@
 </html>
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="" style="font-style: oblique; font-family: fantasy; font-size: 30px;">
+    <a class="navbar-brand" href="" style="font-family: 'THE외계인설명서'; font-size: 30px;">
         <img src= " {%static 'css.jpg' %}" alt="" style="width: 60px; height: 60;">
          Cafe Sharing Service  </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <div>
+         {%if user.is_authenticated %}
+    <a style="font-family: 'THE외계인설명서'" href="{%url 'logout'%}">LOGOUT</a>
+    {%else%}
+    
+    <a style="font-family: 'THE외계인설명서';" href="{%url 'login'%}">LOGIN</a>
+    <a style="font-family: 'THE외계인설명서';" href="{%url 'logout'%}">LOGOUT</a>
+    {%endif%}
+    
+    <a style="font-family: 'THE외계인설명서';" href="{%url 'review'%}">새 리뷰쓰기</a>
+    </div>
+</nav>
        
-        <li class="nav-item dropdown">
+      
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             MENU
           </a>
@@ -46,16 +53,56 @@
 
 
 <div>
-        <!-- {%if user.is_authenticated %}
+         {%if user.is_authenticated %}
             <h3>안녕하세요 {{user.nickname}}님</h3>
             <a href="{%url 'logout'%}">로그아웃</a>
         {%else%}
             <a href="{%url 'login'%}">로그인</a>
             <a href="{%url 'register'%}">회원가입</a>   
-        {%endif%} -->
-</div>
+        {%endif%} 
+</div> -->
+
+<body style="margin: 0;">
+<section style="padding: 91px 0 0; display: block;">
+  {%if user.is_authenticated %}
+  <h3 style="font-family: 'THE외계인설명서';">안녕하세요 {{user.nickname}}님</h3>
+  {% endif %}
+  <ul class="list" style="padding: 101px 0 110px; text-align:center; font: size 0; list-style: none; ">
+    <li style="margin: 0 15px; display: inline-block;">
+      <a href="">
+        <img alt="" src="../../KakaoTalk_20191216_115333275.jpg"/>
+        <div>
+          <span>super team</span>
+        </div>
+      </a>
+    </li >
+
+    <li style="margin: 0 15px; display: inline-block;">
+      <a href="">
+        <img alt="" src="../../css.jpg"/>
+        <div>
+          <span>super team</span>
+        </div>
+      </a>
+    </li>
+    
+    <li style="margin: 0 15px; display: inline-block;">
+      <a href="">
+      {% if CSS.img %}
+        <img alt="" src="{{CSS.img.url}}">
+      {%endif%}
+
+        <div>
+          <span>super team</span>
+        </div>
+      </a>
+    </li>  
+  </ul>
 
 
+
+
+<<<<<<< HEAD
 
 {% for c in cafes.all %}
     <a href="{% url 'detail' c.id %} ">go </a>
@@ -63,3 +110,7 @@
     {{c.mood}}
 {% endfor %}
 
+=======
+</section>
+</body>
+>>>>>>> 4e5bb3df7521ad0343f781b132150dc324a63607
