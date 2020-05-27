@@ -1,1 +1,11 @@
 <h1>mainpage</h1>
+
+<div>
+        {%if user.is_authenticated %}
+            <h3>안녕하세요 {{user.nickname}}님</h3>
+            <a href="{%url 'logout'%}">로그아웃</a>
+        {%else%}
+            <a href="{%url 'login'%}">로그인</a>
+            <a href="{%url 'register'%}">회원가입</a>   
+        {%endif%}
+</div>
