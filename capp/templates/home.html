@@ -56,3 +56,10 @@
 </div>
 
 
+
+{% for c in cafes.all %}
+    <a href="{% url 'detail' c.id %} ">go </a>
+    {{c.title}}
+    {{c.mood}}
+{% endfor %}
+

@@ -1,13 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .form import CSSForm
 from django.shortcuts import redirect
-
+from .models import CSS
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    cafes = CSS.objects.all()
+    return render(request, 'home.html', {'cafes':cafes})
 
-def detail(request):
-    return render(request, 'detail.html')
+def detail(request,css_id):
+    css = get_object_or_404(CSS, pk = css_id)
+    return render(request, 'detail.html', {'css':css})
 
 def mainpage(request):
     return render(request, 'mainpage.html')
