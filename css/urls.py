@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import capp.views
+import account.urls
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +28,7 @@ urlpatterns = [
     path('edit/', capp.views.edit, name="edit"),
     path('mainpage/', capp.views.mainpage, name="mainpage"),
     path('review/', capp.views.review, name="review"),
+    path('account/', include(account.urls)),        
+] 
 
-
-]
+# urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
