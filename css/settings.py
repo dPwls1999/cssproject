@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'capp',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'css.wsgi.application'
 
+AUTH_USER_MODEL = "account.CustomModel"
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
