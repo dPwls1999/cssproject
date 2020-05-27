@@ -9,33 +9,33 @@
 </html>
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="" style="font-style: oblique; font-family: fantasy; font-size: 30px;">
+        <img src= " {%static 'css.jpg' %}" alt="" style="width: 60px; height: 60;">
+         Cafe Sharing Service  </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <img src= " {%static 'css.jpg' %}" alt="" style="width: 50px; height: 50;">
-        </li>
+       
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
+            MENU
           </a>
+            {%if user.is_authenticated %}
+            <h3>안녕하세요 {{user.nickname}}님</h3>
+            <a class="dropdown-item" href="{%url 'logout'%}">로그아웃</a>
+            {%else%}
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="{%url 'login'%}">LOGIN</a>
+            <a class="dropdown-item" href="{%url 'logout'%}">LOGOUT</a>
+            {%endif%}
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="{%url 'review'%}">새 리뷰쓰기</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+       
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -45,18 +45,14 @@
   </nav>
 
 
-<h1>mainpage</h1>
-
 <div>
-        {%if user.is_authenticated %}
+        <!-- {%if user.is_authenticated %}
             <h3>안녕하세요 {{user.nickname}}님</h3>
             <a href="{%url 'logout'%}">로그아웃</a>
         {%else%}
             <a href="{%url 'login'%}">로그인</a>
             <a href="{%url 'register'%}">회원가입</a>   
-        {%endif%}
+        {%endif%} -->
 </div>
-
-<a href="{%url 'review'%}">새 리뷰 쓰기</a>
 
 
