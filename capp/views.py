@@ -17,7 +17,7 @@ def edit(request):
 
 def review(request):
     if request.method == 'POST': 
-        form = CSSForm(request.POST)
+        form = CSSForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('home')
