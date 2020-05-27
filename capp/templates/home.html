@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -27,4 +28,20 @@
 </body>
 
 </html>
+=======
+<h1>mainpage</h1>
+
+<div>
+        {%if user.is_authenticated %}
+            <h3>안녕하세요 {{user.nickname}}님</h3>
+            <a href="{%url 'logout'%}">로그아웃</a>
+        {%else%}
+            <a href="{%url 'login'%}">로그인</a>
+            <a href="{%url 'register'%}">회원가입</a>   
+        {%endif%}
+</div>
+
+<a href="{%url 'review'%}">새 리뷰 쓰기</a>
+
+>>>>>>> 80da41587496432df2c70a55a30ab193e5ba4c2c
 
