@@ -32,7 +32,7 @@ urlpatterns = [
     path('account/', include(account.urls)), 
     # path('detail/<int:css_id>', capp.views.add_comment, name='add_comment'),    
     # path('add_comment/<int:css_id>', capp.views.add_comment, name='add_comment'),   
-
+    path('delete/<int:css_id>', capp.views.delete, name="delete"),
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

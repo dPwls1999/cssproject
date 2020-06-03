@@ -18,7 +18,7 @@ def detail(request,css_id):
             comment = cform.save(commit=False)
             comment.post = css
             comment.save()
-            return redirect('detail/<int:css_id>', pk=css.id)
+            return redirect('/detail/'+ str(css.id))
     else:
         cform = CommentForm()
     return render(request, 'detail.html', {'css':css, 'cform': cform})
