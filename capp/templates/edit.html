@@ -1,0 +1,19 @@
+<h1>update your review</h1>
+
+{%if capp.image%}
+    <img src="{{capp.image.url}}" alt="">
+    <br>
+    <br>
+{%endif%}
+
+<form action="{%url 'update'%}" method="POST">
+    {%csrf_token%}
+    Title : <input type="text" value = "{{capp.title}}" name="title">
+    <br>
+    <br>
+    Body : <textarea name="body" id="" cols="40" rows="20">{{capp.body}}</textarea>
+    <br>
+    <br>
+    <button type="submit">저장</button>
+
+</form>
