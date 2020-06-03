@@ -22,7 +22,9 @@
     {%endif%}
     
     <a style="font-family: 'THE외계인설명서';" href="{%url 'review'%}">새 리뷰쓰기</a>
-    </div>
+    <br>
+    <a style="font-family: 'THE외계인설명서';" href="{%url 'mypage'%}">mypage</a>
+  </div>
 </nav>
        
       
@@ -100,10 +102,10 @@
   </ul>
 
 
-{% for c in cafes.all %}
-    <a href="{% url 'detail' c.id %} ">go </a>
-    {{c.title}}
-    {{c.mood}}
+{% for css in cafes.all %}
+    <a href="{% url 'detail' css.id %} ">go </a>
+    {{css.title}}
+    {{css.mood}}
 {% endfor %}
 
 </section>

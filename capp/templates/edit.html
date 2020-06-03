@@ -1,19 +1,40 @@
 <h1>update your review</h1>
 
-{%if capp.image%}
-    <img src="{{capp.image.url}}" alt="">
-    <br>
-    <br>
-{%endif%}
+<!-- {%if capp.image%} -->
+    <!-- <img src="{{css.image.url}}" alt=""> -->
+    <!-- <br> -->
+    <!-- <br> -->
+<!-- {%endif%} -->
 
-<form action="{%url 'update'%}" method="POST">
+<form action="{%url 'update' css.id%}" method="POST">
     {%csrf_token%}
-    Title : <input type="text" value = "{{capp.title}}" name="title">
-    <br>
-    <br>
-    Body : <textarea name="body" id="" cols="40" rows="20">{{capp.body}}</textarea>
-    <br>
-    <br>
-    <button type="submit">저장</button>
 
+<div>
+    <h4>카페이름 : <input type="text" value = "{{css.title}}" name="title"></h4><br>
+    <h4>주소 : <input type="text" value = "{{css.area}}" name="area"></h4><br>
+    <h4>영업시간 :<input type="text" value = "{{css.time}}" name="time"></h4><br>
+    <h4>분위기 : <input type="text" value = "{{css.mood}}" name="mood"></h4><br>
+    <h4>층수 : <input type="text" value = "{{css.floor}}" name="floor"></h4><br>
+    <h4>화장실 : <input type="text" value = "{{css.toilet}}" name="toilet"></h4><br>
+    <h4>흡연실 : <input type="text" value = "{{css.smoke}}" name="smoke"></h4><br>
+    <h4>엘리베이터 : <input type="text" value = "{{css.elevator}}" name="elevator"></h4><br>
+    <h4>애완동물 : <input type="text" value = "{{css.pet}}" name="pet"></h4><br>
+    <h4>특이사항 : <input type="text" value = "{{css.add}}" name="add"></h4><br>
+    <h4>이미지 : <input type="file" value = "{{css.image}}" name="image"></h4>
+    <!-- <img src="{{css.image.url}}"> -->
+</div>
+
+<button type="submit">저장</button>
 </form>
+
+<!-- <form action="{%url 'update' css.id%}" method="POST"> -->
+    <!-- {%csrf_token%} -->
+    <!-- Title : <input type="text" value = "{{css.title}}" name="title"> -->
+    <!-- <br> -->
+    <!-- <br> -->
+    <!-- Body : <textarea name="body" id="" cols="40" rows="20">{{css.body}}</textarea> -->
+    <!-- <br> -->
+    <!-- <br> -->
+    <!-- <button type="submit">저장</button> -->
+<!--  -->
+<!-- </form> -->
