@@ -35,3 +35,4 @@ def register_view(request):
     else:
         form = RegisterForm()
         return render(request, "account.html", {"form":form})
+

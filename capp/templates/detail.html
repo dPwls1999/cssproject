@@ -1,6 +1,4 @@
-
-
-
+<h1>css project detail</h1>
 
 <div>
     <h4>카페이름 : {{css.title}}</h4><br>
@@ -16,6 +14,7 @@
     <img src="{{css.image.url}}">
 </div>
 
+<<<<<<< HEAD
 <!-- 댓글 쓰기 -->
 <form method="POST" class="post-form">{% csrf_token %}
     {{ cform.as_p }}
@@ -30,3 +29,8 @@
 {% empty %}
     <p>No comments here yet :(</p>
 {% endfor %}
+=======
+<a href="{%url 'edit' css.id%}">수정하기</a>
+</html>
+
+>>>>>>> a6fae971043a314aab96d912c9bdb9adfa3893c0
