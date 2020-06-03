@@ -148,10 +148,13 @@
   </ul>
 
 
-{% for css in cafes.all %}
-    <a href="{% url 'detail' css.id %} ">go </a>
-    {{css.title}}
-    {{css.mood}}
+
+{% for c in cafes.all %}
+    <a href="{% url 'detail' c.id %} ">go </a>
+    {{c.title}}
+    {{c.mood}}
+    <a href="{% url 'detail' c.id %}">댓글 수: {{ c.comments.count }}</a>
+
 {% endfor %}
 
 </section>

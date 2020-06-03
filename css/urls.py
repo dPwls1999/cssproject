@@ -29,8 +29,10 @@ urlpatterns = [
     path('update/<int:css_id>', capp.views.update, name="update"),
     path('mypage/', capp.views.mypage, name="mypage"),
     path('review/', capp.views.review, name="review"),
-    path('account/', include(account.urls)),   
-    path('delete/<int:css_id>', capp.views.delete, name="delete"),     
+    path('account/', include(account.urls)), 
+    # path('detail/<int:css_id>', capp.views.add_comment, name='add_comment'),    
+    # path('add_comment/<int:css_id>', capp.views.add_comment, name='add_comment'),   
+
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
