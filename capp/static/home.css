@@ -1,0 +1,79 @@
+.story {
+    padding: 91px 0 0;
+}
+.story p {
+    text-align: center;
+    font-size: 15px;
+    color: #999;
+    line-height: 24px;
+}
+.story .list img {
+    width : 380px;
+    height : 250px;
+}
+.story .list{
+    padding: 101px 0 0;
+    text-align: center;
+    font-size: 0;
+}
+.story .list li {
+    margin: 0 15px;
+    display: inline-block;
+    background: #95e1d3;  
+}
+.story .list li a {
+    display: block;
+    position: relative;
+    transform: translate(0, 0);
+    transition: transform 0.5s;
+}
+.story .list li a:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #fce38a, #f38181);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.story .list li a span {
+    position: absolute; left:50%;
+    top: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    font-size:20px;
+}
+.story .list li a span:before {
+    content:url();
+    display:block;
+}
+.story .list li:hover a {
+    transform: translate(-10px, -10px);
+}
+.story .list li:hover a:before {
+    opacity: 0.9;
+}
+
+.h2 {
+    text-align: center; 
+    text-transform: uppercase; 
+    font-size: 30px;
+    color: #333;
+    line-height: 1;
+}
+.h2 img {
+    display: block; 
+    margin: 0 auto; 
+    padding: 0 0 23px;
+}
+.h2:after {
+    content: ""; 
+    display: block; 
+    margin: 40px auto 47px;
+    width: 60px; 
+    height: 3px; 
+    background: #f38181;
+    
+}
