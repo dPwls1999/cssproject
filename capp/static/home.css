@@ -1,3 +1,42 @@
+/* navbar */
+.navul {
+    display: block;
+    height: 34px;
+    /* line-height: 34px; */
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all .5s;
+    list-style: none;
+    float: right;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+
+.ll {
+    float:right;
+    padding-right: 10px;
+    color:#fff;
+    
+}
+/* 분홍부분(웰컴파트) */
+.first .title {
+    background: linear-gradient(to bottom, #fce38a, #f38181);
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 558px;
+    text-align: center;
+    list-style: none;
+}
+.first .title .are {
+    margin-top: 70px;
+    
+}
+.first .title .wel {
+    margin-top: 30px;
+    padding-bottom: 0PX;
+}
+/* 흰배경시작 */
 .story {
     padding: 91px 0 0;
 }
@@ -7,17 +46,18 @@
     color: #999;
     line-height: 24px;
 }
+/* 카페사진 부분 */
 .story .list img {
     width : 380px;
     height : 250px;
 }
 .story .list{
-    padding: 101px 0 0;
+    padding: 101px 0 110px;
     text-align: center;
     font-size: 0;
 }
 .story .list li {
-    margin: 0 15px;
+    margin: 25px 15px;
     display: inline-block;
     background: #95e1d3;  
 }
@@ -38,12 +78,23 @@
     opacity: 0;
     transition: opacity 0.5s;
 }
-.story .list li a span {
-    position: absolute; left:50%;
+.story .list li a div {
+    overflow: hidden;
+    position: absolute; 
+    left:50%;
     top: 50%;
     z-index: 10;
+    width: 150px;
+    height: 50px;
     transform: translate(-50%, -50%);
-    font-size:20px;
+}
+.story .list li a span {
+    display: block;
+    transform: translateY(60px);
+    font-size: 18px;
+    text-transform: uppercase;
+    color:#fff;
+    transition: transform 0.5s 0.2s;
 }
 .story .list li a span:before {
     content:url();
@@ -55,7 +106,41 @@
 .story .list li:hover a:before {
     opacity: 0.9;
 }
-
+.story .list li:hover span {
+    transform: translateY(0);
+}
+/* 하늘색 카운트 영역 */
+.story .count {
+    background: #95e1d3;
+}
+.story .count ul {
+    display: flex;
+    width: 1212px;
+    margin: 0 auto;
+    border-right: 1px solid #b5eae0;
+    box-sizing: border-box;
+}
+.story .count ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    flex:1;
+    height: 270px;
+    color:#fff;
+    line-height: 1;
+    border-left: 1px solid #b5eae0;
+}
+.story .count ul li strong {
+    font-size: 72px;
+}
+.story .count ul li p {
+    padding: 30px 0 0;
+    font-size: 14px;
+    color:#fff;
+    text-transform: uppercase;
+}
+/* 인삿말 부분 */
 .h2 {
     text-align: center; 
     text-transform: uppercase; 
