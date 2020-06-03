@@ -25,10 +25,10 @@
         <img src= " {%static 'css.jpg' %}" alt="" style="width: 60px; height: 60;">
          Cafe Sharing Service  </a>
     <div>
-         {%if user.is_authenticated %}
+        {%if user.is_authenticated %}
     <a style="font-family: 'THE외계인설명서'" href="{%url 'logout'%}">LOGOUT</a>
-    {%else%}
-    
+        {%else%}
+    <a style="font-family: 'THE외계인설명서';" href="{%url 'register'%}">sign up</a>
     <a style="font-family: 'THE외계인설명서';" href="{%url 'login'%}">LOGIN</a>
     <a style="font-family: 'THE외계인설명서';" href="{%url 'logout'%}">LOGOUT</a>
     {%endif%}
@@ -45,7 +45,7 @@
             MENU
           </a>
             {%if user.is_authenticated %}
-            <h3>안녕하세요 {{user.nickname}}님</h3>
+            <h3>안녕하세요 {{user.nickname}} 님</h3>
             <a class="dropdown-item" href="{%url 'logout'%}">로그아웃</a>
             {%else%}
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
