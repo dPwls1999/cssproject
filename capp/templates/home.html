@@ -9,18 +9,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="js/default.js"></script>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" >
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{% static 'home.css' %}">
-    <link rel="stylesheet" href="{% static 'default.css' %}">
 </head>
 <main>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="" style="font-family: 'THE외계인설명서'; font-size: 30px;">
         <img src= " {%static 'css.jpg' %}" alt="" style="width: 60px; height: 60;">
          Cafe Sharing Service  </a>
@@ -39,14 +38,69 @@
   </div>
 </nav>
        
+<<<<<<< HEAD
+=======
+      
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            MENU
+          </a>
+            {%if user.is_authenticated %}
+            <h3>안녕하세요 {{user.nickname}} 님</h3>
+            <a class="dropdown-item" href="{%url 'logout'%}">로그아웃</a>
+            {%else%}
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{%url 'login'%}">LOGIN</a>
+            <a class="dropdown-item" href="{%url 'logout'%}">LOGOUT</a>
+            {%endif%}
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{%url 'review'%}">새 리뷰쓰기</a>
+          </div>
+        </li>
+       
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+    </div>
+  </nav> -->
+  
+ 
+>>>>>>> 6266b68358f44a01b31166347619261b28cbe29f
 
 <!-- login -->
   <body style="margin: 0;">
-    <section style="padding: 91px 0 0; display: block;">
+    <section style="padding: 0 0; display: block;">
       {%if user.is_authenticated %}
       <h3 style="font-family: 'THE외계인설명서';">안녕하세요 {{user.nickname}}님</h3>
       {% endif %}
   <!-- main -->
+  <!-- 분홍배경(웰컴) -->
+  <section class="first">
+    <div class="title">
+      <h1><a href=""><img src="images/h1_logo.png" alt="CSS"></a>
+      <!-- nav -->
+      <ul class=navul>
+        {%if user.is_authenticated %}
+          <li class="ll"><a href="{%url 'logout'%}" style=" font-family: 'THE외계인설명서">LOGOUT</a></li>
+        {%else%}
+          <li class="ll" ><a href="{%url 'login'%}" style=" font-family: 'THE외계인설명서">LOGIN</a></li>
+          <li class="ll"><a href="{%url 'logout'%}" style=" font-family: 'THE외계인설명서">LOGOUT</a></li>
+        {%endif%}
+        <li class="ll"><a href="{%url 'review'%}" style=" font-family: 'THE외계인설명서">새 리뷰 쓰기</a></li>
+      </ul>
+      <ul>
+      </h1>
+        <li>
+          <img class="are" src="{%static 'Are you.png' %}" alt="Are you">
+          <br>
+          <img class="wel" src="{%static 'welcome to css.png' %}" alt="welcome">
+        </li>
+    </div>
+  </section>
+  <!-- 흰배경시작 -->
     <section class="story">
         <h2 class="h2"><img src="https://rebehayan.github.io/clone/zeplin/images/txt_copy1.png" alt="CAFE LIST">
             나에게 딱맞는 스터디 카페찾기
@@ -60,55 +114,137 @@
             <li>
                 <a href="">
                     <img src="https://s3.ap-northeast-2.amazonaws.com/om-public-static/media/images/products/2019/03/10gu_macaron_01.jpg" alt="">
-                        <span>카페이름</span>
+                    <div>
+                      <span>카페주소</span>
+                    </div>
                 </a>
             </li>
             <li>
                 <a href="">
                     <img src="https://image-cdn.hypb.st/https%3A%2F%2Fkr.hypebeast.com%2Ffiles%2F2019%2F08%2Fbest-coffee-latte-cafe-seoul-blue-bottle-fritz-rabout-momento-brewers-dukes-2019-1-1.jpg?q=75&w=800&cbr=1&fit=max" alt="">
-                        <span>카페이름</span>
+                    <div>
+                      <span>카페주소</span>
+                    </div>
                 </a>
             </li>
             <li>
                 <a href="">
                     <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                        <span>카페이름</span>
+                    <div>
+                      <span>카페주소</span>
+                    </div>
                 </a>
             </li>
-        </ul>
-        <div>
-            <ul>
+            <br>
             <li>
+              <a href="">
+                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
+                  <div>
+                    <span>카페주소</span>
+                  </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
+                  <div>
+                    <span>카페주소</span>
+                  </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
+                  <div>
+                    <span>카페주소</span>
+                  </div>
+              </a>
+            </li>
+            <br>
+            <li>
+              <a href="">
+                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
+                  <div>
+                    <span>카페주소</span>
+                  </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
+                  <div>
+                    <span>카페주소</span>
+                  </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
+                  <div>
+                    <span>카페주소</span>
+                  </div>
+              </a>
+            </li>
+            <br>
+            <li>
+              <a href="">
+                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
+                  <div>
+                    <span>카페주소</span>
+                  </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
+                  <div>
+                    <span>카페주소</span>
+                  </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
+                  <div>
+                    <span>카페주소</span>
+                  </div>
+              </a>
+            </li>
+        </ul>
+        <!-- 하늘색 부분. 디테일에 들어가도 될듯? -->
+        <div class="count">
+            <ul>
+              <li>
                 <strong>42</strong>
                 <p>좌석갯수</p>
-            </li>
-            <li>
+              </li>
+              <li>
                 <strong>Y</strong>
                 <p>엘리베이터 유무</p>
-            </li>
-            <li>
+              </li>
+              <li>
                 <strong>42</strong>
                 <p>특이사항</p>
-            </li>
-            <li>
+              </li>
+              <li>
                 <strong>42</strong>
                 <p>특이사항</p>
-            </li>
-            <li>
+              </li>
+              <li>
                 <strong>42</strong>
                 <p>특이사항</p>
-            </li>
-            <li>
+              </li>
+              <li>
                 <strong>42</strong>
                 <p>특이사항</p>
-            </li>  
+              </li>  
             </ul>
         </div>
     </section>
 </main>
 
 
-    <li style="margin: 0 15px; display: inline-block;">
+    <!-- <li style="margin: 0 15px; display: inline-block;">
       <a href="">
       {% if CSS.img %}
         <img alt="" src="{{CSS.img.url}}">
@@ -119,8 +255,7 @@
         </div>
       </a>
     </li>  
-  </ul>
-
+  </ul> -->
 
 
 {% for c in cafes.all %}
