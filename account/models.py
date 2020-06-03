@@ -6,3 +6,5 @@ class CustomModel(AbstractUser):
     nickname = models.CharField(max_length=10)
     school = models.CharField(max_length=10)
     phone_number = models.CharField(max_length=10)
+
+

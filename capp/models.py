@@ -31,14 +31,10 @@ class CSS(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey('CSS', on_delete=models.CASCADE, related_name='comments')
-    writer = models.CharField(max_length=200)
+    writer = models.CharField(max_length=20)
     text = models.TextField()
-    created_date = models.DateTimeField(default=False)
-    approved_comment = models.BooleanField(default=False)
-
-    def approve(self):
-        self.approved_comment = True
-        self.save()
+    like = models.IntegerField(default=0)
+    dislike = models.IntegerField(default=0)
 
     def __str__(self):
         return self.text
