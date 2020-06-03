@@ -32,7 +32,7 @@
       <!-- nav -->
       <ul class=navul>
         {%if user.is_authenticated %}
-          <h3 style="font-family: 'THE외계인설명서';">안녕하세요 {{user.nickname}}님</h3>
+          <li class="ll"><h3 style="font-family: 'THE외계인설명서';">안녕하세요 {{user.nickname}}님</h3></li>
           <li class="ll"><a href="{%url 'logout'%}" style=" font-family: 'THE외계인설명서">LOGOUT</a></li>
         {%else%}
           <li class="ll" ><a href="{%url 'login'%}" style=" font-family: 'THE외계인설명서">LOGIN</a></li>
@@ -59,108 +59,33 @@
             <br>
             CSS로 오세요!
         </p>
-        <ul class="list">
-            <li>
-                <a href="">
-                    <img src="https://s3.ap-northeast-2.amazonaws.com/om-public-static/media/images/products/2019/03/10gu_macaron_01.jpg" alt="">
+        <div class="album py-5">
+          <div class="container">
+            <div class="row">
+              {% for c in cafes.all %}
+              <div class="col-md-4">
+                <ul class="list">
+                  <li>
+                    <a href= "{% url 'detail' c.id %}">
+                    <img src="{{c.image.url}}" alt="">
                     <div>
-                      <span>카페주소</span>
+                      <span>
+                        {{c.title}}
+                         <!-- <a href="{% url 'detail' c.id %}">댓글 수: {{ c.comments.count }}</a> -->
+                        <!-- <a href="{% url 'detail' c.id %} ">자세히 보기 </a> -->
+                      </span>
                     </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="https://image-cdn.hypb.st/https%3A%2F%2Fkr.hypebeast.com%2Ffiles%2F2019%2F08%2Fbest-coffee-latte-cafe-seoul-blue-bottle-fritz-rabout-momento-brewers-dukes-2019-1-1.jpg?q=75&w=800&cbr=1&fit=max" alt="">
-                    <div>
-                      <span>카페주소</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                    <div>
-                      <span>카페주소</span>
-                    </div>
-                </a>
-            </li>
-            <br>
-            <li>
-              <a href="">
-                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                  <div>
-                    <span>카페주소</span>
-                  </div>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                  <div>
-                    <span>카페주소</span>
-                  </div>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                  <div>
-                    <span>카페주소</span>
-                  </div>
-              </a>
-            </li>
-            <br>
-            <li>
-              <a href="">
-                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                  <div>
-                    <span>카페주소</span>
-                  </div>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                  <div>
-                    <span>카페주소</span>
-                  </div>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                  <div>
-                    <span>카페주소</span>
-                  </div>
-              </a>
-            </li>
-            <br>
-            <li>
-              <a href="">
-                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                  <div>
-                    <span>카페주소</span>
-                  </div>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                  <div>
-                    <span>카페주소</span>
-                  </div>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                  <img src="https://cdn.kormedi.com/news/article/__icsFiles/artimage/2018/08/22/c_km601/salad580.jpg" alt="">
-                  <div>
-                    <span>카페주소</span>
-                  </div>
-              </a>
-            </li>
-        </ul>
-        <!-- 하늘색 부분. 디테일에 들어가도 될듯? -->
+                    </a>
+                </li>
+              </ul>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+ 하늘색 부분. 디테일에 들어가도 될듯?
         <div class="count">
             <ul>
               <li>
@@ -192,28 +117,13 @@
     </section>
 </main>
 
-
-    <!-- <li style="margin: 0 15px; display: inline-block;">
-      <a href="">
-      {% if CSS.img %}
-        <img alt="" src="{{CSS.img.url}}">
-      {%endif%}
-
-        <div>
-          <span>super team</span>
-        </div>
-      </a>
-    </li>  
-  </ul> -->
-
-
-{% for c in cafes.all %}
-    <a href="{% url 'detail' c.id %} ">go </a>
+<!-- {% for c in cafes.all %}
+    <a href="{% url 'detail' c.id %} ">자세히 보기 </a>
     {{c.title}}
     {{c.mood}}
     <a href="{% url 'detail' c.id %}">댓글 수: {{ c.comments.count }}</a>
 
-{% endfor %}
+{% endfor %} -->
 
 </section>
 </body>
