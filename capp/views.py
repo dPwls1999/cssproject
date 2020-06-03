@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .form import CSSForm, CommentForm
 from django.shortcuts import redirect
 from .models import CSS
+from django.utils import timezone
 # Create your views here.
 def home(request):
     cafes = CSS.objects.all()
@@ -30,7 +31,7 @@ def review(request):
     if request.method == 'POST': 
         form = CSSForm(request.POST, request.FILES)
         if form.is_valid():
-            form.created_date = 
+            form.created_date = timezone.datetime.now()
             form.save()
             return redirect('home')
     else:         
