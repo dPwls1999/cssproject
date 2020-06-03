@@ -11,11 +11,12 @@ def detail(request,css_id):
     css = get_object_or_404(CSS, pk = css_id)
     return render(request, 'detail.html', {'css':css})
 
-def mainpage(request):
-    return render(request, 'mainpage.html')
+def mypage(request):
+    return render(request, 'mypage.html')
 
-def edit(request):
-    return render(request, 'edit.html')
+def edit(request, css_id):
+    css = get_object_or_404(CSS, pk = css_id)
+    return render(request, 'edit.html', {'css':css})
 
 def review(request):
     if request.method == 'POST': 
@@ -26,3 +27,22 @@ def review(request):
     else:         
         form = CSSForm()
     return render(request, 'review.html',{'form': form} )
+
+def update(request,css_id):
+    edit_css = get_object_or_404(CSS, pk=css_id)
+    # edit_css.title = request.POST['title']
+    # edit_css.body = request.POST['body']
+    # edit_css.pub_date = timezone.datetime.now()
+    edit_css.title= request.POST['title'] 
+    edit_css.area= request.POST['area']
+    edit_css.time= request.POST['time']
+    edit_css.mood= request.POST['mood']
+    edit_css.floor= request.POST['floor']
+    edit_css.toilet= request.POST['toilet']
+    edit_css.smoke= request.POST['smoke']
+    edit_css.elevator= request.POST['elevator']
+    edit_css.pet= request.POST['pet']
+    edit_css.add= request.POST['add']
+    edit_css.image= request.POST['image']
+    edit_css.save()
+    return redirect('/detail/' + str(edit_css.id))

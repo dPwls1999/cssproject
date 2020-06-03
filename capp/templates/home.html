@@ -34,10 +34,39 @@
     {%endif%}
     
     <a style="font-family: 'THE외계인설명서';" href="{%url 'review'%}">새 리뷰쓰기</a>
+    <br>
+    <a style="font-family: 'THE외계인설명서';" href="{%url 'mypage'%}">mypage</a>
+  </div>
+</nav>
+       
+      
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            MENU
+          </a>
+            {%if user.is_authenticated %}
+            <h3>안녕하세요 {{user.nickname}}님</h3>
+            <a class="dropdown-item" href="{%url 'logout'%}">로그아웃</a>
+            {%else%}
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{%url 'login'%}">LOGIN</a>
+            <a class="dropdown-item" href="{%url 'logout'%}">LOGOUT</a>
+            {%endif%}
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{%url 'review'%}">새 리뷰쓰기</a>
+          </div>
+        </li>
+       
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
     </div>
   </nav>
 
-  <!-- login -->
+<!-- login -->
   <body style="margin: 0;">
     <section style="padding: 91px 0 0; display: block;">
       {%if user.is_authenticated %}
@@ -119,10 +148,10 @@
   </ul>
 
 
-{% for c in cafes.all %}
-    <a href="{% url 'detail' c.id %} ">go </a>
-    {{c.title}}
-    {{c.mood}}
+{% for css in cafes.all %}
+    <a href="{% url 'detail' css.id %} ">go </a>
+    {{css.title}}
+    {{css.mood}}
 {% endfor %}
 
 </section>
