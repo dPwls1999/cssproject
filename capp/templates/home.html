@@ -28,17 +28,21 @@
   <!-- 분홍배경(웰컴) -->
   <section class="first">
     <div class="title">
-      <h1><a href=""><img src="images/h1_logo.png" alt="CSS"></a>
+      <h1>
+        <a href="">
+          <img class="logo" src="{%static 'css.jpg' %}" alt="" style=" font-family: 'THE외계인설명서'; color:#fff;">
+          <img class="logo2" src="{%static 'css text.png' %}" alt="" style=" font-family: 'THE외계인설명서'; color:#fff;">
+        </a>
       <!-- nav -->
-      <ul class=navul>
+      <ul class="navul">
         {%if user.is_authenticated %}
           <li class="ll"><h3 style="font-family: 'THE외계인설명서';">안녕하세요 {{user.nickname}}님</h3></li>
           <li class="ll"><a href="{%url 'logout'%}" style=" font-family: 'THE외계인설명서">LOGOUT</a></li>
         {%else%}
-          <li class="ll" ><a href="{%url 'login'%}" style=" font-family: 'THE외계인설명서">LOGIN</a></li>
-          <li class="ll"><a href="{%url 'logout'%}" style=" font-family: 'THE외계인설명서">LOGOUT</a></li>
+          <li class="ll" ><a href="{%url 'login'%}" style=" font-family: 'THE외계인설명서';color:#fff;">LOGIN</a></li>
+          <li class="ll"><a href="{%url 'logout'%}" style=" font-family: 'THE외계인설명서';color:#fff;">LOGOUT</a></li>
         {%endif%}
-        <li class="ll"><a href="{%url 'review'%}" style=" font-family: 'THE외계인설명서">새 리뷰 쓰기</a></li>
+        <li class="ll"><a href="{%url 'review'%}" style=" font-family: 'THE외계인설명서';color:#fff;">새 리뷰 쓰기</a></li>
       </ul>
       <ul>
       </h1>
