@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .form import CSSForm
+from .form import CSSForm, CommentForm
 from django.shortcuts import redirect
 from .models import CSS
+from django.utils import timezone
 # Create your views here.
 def home(request):
     cafes = CSS.objects.all()
@@ -9,7 +10,16 @@ def home(request):
 
 def detail(request,css_id):
     css = get_object_or_404(CSS, pk = css_id)
-    return render(request, 'detail.html', {'css':css})
+    if request.method == "POST":
+        cform = CommentForm(request.POST)
+        if cform.is_valid():
+            comment = cform.save(commit=False)
+            comment.post = css
+            comment.save()
+            return redirect('detail/<int:css_id>', pk=css.id)
+    else:
+        cform = CommentForm()
+    return render(request, 'detail.html', {'css':css, 'cform': cform})
 
 def mypage(request):
     return render(request, 'mypage.html')
@@ -22,6 +32,7 @@ def review(request):
     if request.method == 'POST': 
         form = CSSForm(request.POST, request.FILES)
         if form.is_valid():
+            form.created_date = timezone.datetime.now()
             form.save()
             return redirect('home')
     else:         
@@ -46,3 +57,4 @@ def update(request,css_id):
     edit_css.image= request.POST['image']
     edit_css.save()
     return redirect('/detail/' + str(edit_css.id))
+
