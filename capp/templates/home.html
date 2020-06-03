@@ -26,23 +26,24 @@
 
   <!-- main -->
   <!-- 분홍배경(웰컴) -->
-  <section class="first">
+  <section class="first hf">
     <div class="title">
       <h1>
         <a href="">
-          <img class="logo" src="{%static 'css.jpg' %}" alt="" style=" font-family: 'THE외계인설명서'; color:#fff;">
-          <img class="logo2" src="{%static 'css text.png' %}" alt="" style=" font-family: 'THE외계인설명서'; color:#fff;">
+          <!-- <img class="logo" src="{%static 'css.jpg' %}" alt="" style=" color:#fff;">
+          <img class="logo2" src="{%static 'css text.png' %}" alt="" style="  color:#fff;"> -->
         </a>
       <!-- nav -->
       <ul class="navul">
         {%if user.is_authenticated %}
-          <li class="ll"><h3 style="font-family: 'THE외계인설명서';">안녕하세요 {{user.nickname}}님</h3></li>
-          <li class="ll"><a href="{%url 'logout'%}" style=" font-family: 'THE외계인설명서">LOGOUT</a></li>
+          <li class="ll">안녕하세요 {{user.nickname}}님</li>
+          <li class="ll"><a href="{%url 'logout'%}" style=" color:#fff;">LOGOUT</a></li>
+          
         {%else%}
-          <li class="ll" ><a href="{%url 'login'%}" style=" font-family: 'THE외계인설명서';color:#fff;">LOGIN</a></li>
-          <li class="ll"><a href="{%url 'logout'%}" style=" font-family: 'THE외계인설명서';color:#fff;">LOGOUT</a></li>
+          <li class="ll" ><a href="{%url 'login'%}" style=" color:#fff;">LOGIN</a></li>
+          <li class="ll"><a href="{%url 'logout'%}" style=" color:#fff;">LOGOUT</a></li>
         {%endif%}
-        <li class="ll"><a href="{%url 'review'%}" style=" font-family: 'THE외계인설명서';color:#fff;">새 리뷰 쓰기</a></li>
+          <li class="ll"><a href="{%url 'review'%}" style=" color:#fff;">새 리뷰 쓰기</a></li>
       </ul>
       <ul>
       </h1>
@@ -56,18 +57,22 @@
   <!-- 흰배경시작 -->
     <section class="story">
         <h2 class="h2"><img src="https://rebehayan.github.io/clone/zeplin/images/txt_copy1.png" alt="CAFE LIST">
-            나에게 딱맞는 스터디 카페찾기
+          <p class="hf" style = " color: #333333; font-size:x-large;">안성맞춤 스터디 카페 찾기</p>
+          
         </h2>
-        <p>
-            도서관말고 공부할 카페 찾는다면
+        <p  class="hf" style = " color: #333333; font-size:large;">
+            도서관이 아닌!
             <br>
-            CSS로 오세요!
+            공부할 카페를 찾고 있는 당신!!
+            <br>
+            CSS로 오세요!!!
         </p>
-        <div class="album py-5">
-          <div class="container">
-            <div class="row">
-              {% for c in cafes.all %}
-              <div class="col-md-4">
+       
+        <div class="container">
+          <div class="row" >
+            {% for c in cafes.all %}
+            <div class="col-md-4">
+              <div class="col-mb-4">
                 <ul class="list">
                   <li>
                     <a href= "{% url 'detail' c.id %}">
@@ -80,16 +85,16 @@
                       </span>
                     </div>
                     </a>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
-
- 하늘색 부분. 디테일에 들어가도 될듯?
+            {% endfor %}
+          </div>    
+        </div>
+        
+  
+ <!-- 하늘색 부분. 디테일에 들어가도 될듯?
         <div class="count">
             <ul>
               <li>
@@ -119,7 +124,7 @@
             </ul>
         </div>
     </section>
-</main>
+</main> -->
 
 <!-- {% for c in cafes.all %}
     <a href="{% url 'detail' c.id %} ">자세히 보기 </a>
@@ -129,6 +134,38 @@
 
 {% endfor %} -->
 
+
+<footer class="footer text-center hf" style="background:rgb(253, 156, 156); height:150px; margin-top: 200px; line-height: 150px; color: rgb(255, 251, 251); ">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<span class="copyright">1회 아이디어톤 css팀</span>	
+			</div>
+			<div class="col-md-2">
+				<i class="fa fa-github"></i>
+			</div>
+			<div class="col-md-5">
+				<ul class="footer-menu">
+					<li>
+					    <a href="#" style="color: #FFF;
+              margin: 0px 10px;
+              text-decoration: none;">권아록</a>
+					</li>
+					<li>
+					    <a href="#">정학영</a>
+					</li>
+					<li>
+					    <a href="#">한예진</a>
+					</li>
+					<li>
+					    <a href="#">서정연</a>
+					</li>
+				</ul>	
+			</div>
+		</div>
+	</div>
+</footer>
+
+
 </section>
 </body>
-

@@ -5,20 +5,25 @@
         margin: 0 auto;
         width: 300px;
     }
+    @font-face { font-family: 'Cafe24Simplehae'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Simplehae.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+    .cf{
+        font-family: 'Cafe24Simplehae';
+    }
 </style>
 
 
-<form action="{%url 'update' css.id%}" method="POST" >
+<form class="cf" action="{%url 'update' css.id%}" method="POST" >
     {%csrf_token%}
 
     
 
-<body style="text-align: center; font-family: 'THE외계인설명서'; font-size: 22px;">
+<body class="cf" style="text-align: center;  font-size: 22px;">
     
     <table style="text-align: left; font-size: 22px; line-height: 32px; padding-top: 60px;">
     <tr>
         <th>
-            <h1 style="font-family: 'THE외계인설명서'; text-align: center;  font-size: 40px; 
+            <h1 style=" text-align: center;  font-size: 40px; 
 background-color: #95e1d3; width: 300px;  padding-top: 20px; padding-bottom: 20px; ">
     Edit Review</h1>
         </th>
@@ -66,12 +71,12 @@ background-color: #95e1d3; width: 300px;  padding-top: 20px; padding-bottom: 20p
     </tr>
     
     <tr>
-        <th><br>이미지 : <input type="file" value = "{{css.image}}" name="image"></th>
+        <th><br>이미지 : <input type="file" value = "{{css.image.url}}" name="image"></th>
     </tr>
    
     <tr>
         <th>
-            <br><button type="submit">저장</button></th>
+            <br><button style="border:none; color: black; background-color: #95e1d3;" type="submit">저장</button></th>
     </tr>
    
 
