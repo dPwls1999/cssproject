@@ -5,71 +5,76 @@
 
 <style>
     form {
-        margin: 0 auto;
-        width: 300px;
+        /* margin: 0 auto; */
+        width: 550px;
     }
-    
+    @font-face { font-family: 'Cafe24Simplehae'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Simplehae.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+    .cafefont{
+        font-family: 'Cafe24Simplehae';
+    }
+
 </style>
-<form >
-<body style="text-align: center; font-family: 'THE외계인설명서'; font-size: 22px;  ">
+<div style="margin-left: 30%;" class="cafefont">
+<body style="text-align: center; font-size: 22px;  ">
     
-    <table style="text-align: left; font-size: 22px; line-height: 32px; padding-top: 60px;">
+    <table style="text-align:left; font-size: 22px; line-height: 32px; padding-top: 60px;">
     <tr>
         <th>
-            <h1 style="font-family: 'THE외계인설명서'; text-align: center;  font-size: 40px; 
-    background-color: #95e1d3; width: 300px;  padding-top: 20px; padding-bottom: 20px; ">
+            <h1 style=" text-align: center;  font-size: 40px; 
+    background-color: #95e1d3; width: 300px; margin-left: 150px; padding-top: 20px; padding-bottom: 20px; ">
         Review Detail</h1>
         </th>
     </tr>
     <tr>
-        <th><br> <img src="{{css.image.url}}"> </th>
+        <th><br> <img src="{{css.image.url}}" style="width: 600px; height: 300px;"> </th>
     </tr>
-    <tr>
-        <th><br>카페이름 : {{css.title}}</th>
-    </tr>
-
-    <tr>
-        <th>주소 : {{css.area}}</th>
+    <tr >
+        <th style="padding-left: 30%;"><br>카페이름 : {{css.title}}</th>
     </tr>
 
     <tr>
-        <th>영업시간 : {{css.time}}</th>
+        <th  style="padding-left: 30%;">주소 : {{css.area}}</th>
     </tr>
 
     <tr>
-        <th>분위기 : {{css.mood}}</th>
+        <th style="padding-left: 30%;">영업시간 : {{css.time}}</th>
     </tr>
 
     <tr>
-        <th>층수 : {{css.floor}}</th>
+        <th style="padding-left: 30%;">분위기 : {{css.mood}}</th>
+    </tr>
+
+    <tr>
+        <th style="padding-left: 30%;">층수 : {{css.floor}}</th>
     </tr>
     
     <tr>
-        <th>화장실 : {{css.toilet}}</th>
+        <th style="padding-left: 30%;">화장실 : {{css.toilet}}</th>
     </tr>
 
     <tr>
-        <th>흡연실 : {{css.smoke}}</th>
+        <th style="padding-left: 30%;">흡연실 : {{css.smoke}}</th>
     </tr>
 
     <tr>
-        <th>엘리베이터 : {{css.elevator}}</th>
+        <th style="padding-left: 30%;">엘리베이터 : {{css.elevator}}</th>
     </tr>
 
     <tr>
-        <th>애완동물 : {{css.pet}}</th>
+        <th style="padding-left: 30%;">애완동물 : {{css.pet}}</th>
     </tr>
 
     <tr>
-        <th>특이사항 : {{css.add}}</th>
+        <th style="padding-left: 30%;">특이사항 : {{css.add}}</th>
     </tr>
     
     
    
     <tr>
-        <th>
-            <br><button> <a href="{%url 'edit' css.id%}">수정하기</a> </button> 
-            <br><button> <a href="{%url 'delete' css.id%}">삭제하기</a> </button> 
+        <th style="padding-left: 30%;">
+            <br><button style="border:none; color: black; background-color: #95e1d3;" > <a href="{%url 'edit' css.id%}">수정하기</a> </button> 
+            <button style="border:none; color: black; background-color: #95e1d3;"> <a href="{%url 'delete' css.id%}">삭제하기</a> </button> 
         </th>
     </tr>
    
@@ -78,23 +83,29 @@
 
         
     </table>
+
 </body>
-</form>
 
 
 
 
 
 
+<br><br>
 
 <!-- 댓글 쓰기 -->
-<form method="POST" class="post-form">{% csrf_token %}
-    {{ cform.as_p }}
-    <button type="submit" class="save btn btn-default" href="{%url 'detail' css.id%}">Send</button>
-</form>
+<box>
+    
+    <form method="POST" class="post-form" style=" padding-left:40px;  padding-bottom: 20px; ">{% csrf_token %}
+        <p style=" padding-top: 20px; padding-bottom: 0px;">닉네임: {{ cform.writer}} </p>
+        <p > {{ cform.text }} </p>
+        <button type="submit" class="save btn btn-default" href="{%url 'detail' css.id%}">Send</button>
+    
 
+</box>
 <!-- 댓글 보여주기 -->
-
+<br><br>
+<hr>
 댓글 수: {{ css.comments.count }}<br><br>
 {% for comment in css.comments.all %}
     <div class="comment">
@@ -106,5 +117,6 @@
 {% endfor %}
 
 
+</form>
+</div>
 </html>
-
