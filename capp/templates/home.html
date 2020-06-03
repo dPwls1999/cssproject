@@ -104,6 +104,7 @@
     <a href="{% url 'detail' c.id %} ">go </a>
     {{c.title}}
     {{c.mood}}
+    <a href="{% url 'detail' c.id %}">댓글 수: {{ c.comments.count }}</a>
 {% endfor %}
 
 </section>

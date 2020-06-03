@@ -28,7 +28,9 @@ urlpatterns = [
     path('edit/', capp.views.edit, name="edit"),
     path('mainpage/', capp.views.mainpage, name="mainpage"),
     path('review/', capp.views.review, name="review"),
-    path('account/', include(account.urls)),        
+    path('account/', include(account.urls)), 
+    # path('detail/<int:css_id>', capp.views.add_comment, name='add_comment'),    
+    # path('add_comment/<int:css_id>', capp.views.add_comment, name='add_comment'),   
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

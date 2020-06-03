@@ -28,3 +28,17 @@ class CSS(models.Model):
 
     def summary(self):
         return self.add[:100]
+
+class Comment(models.Model):
+    post = models.ForeignKey('CSS', on_delete=models.CASCADE, related_name='comments')
+    writer = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=False)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.text
