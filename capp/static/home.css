@@ -1,22 +1,29 @@
 /* navbar */
-.navul {
+.first .title .navul {
     display: block;
     height: 34px;
     /* line-height: 34px; */
     font-size: 14px;
     text-transform: uppercase;
-    transition: all .5s;
     list-style: none;
     float: right;
     margin-right: 50px;
     margin-top: 20px;
 }
 
-.ll {
+.first .title .ll {
     float:right;
     padding-right: 10px;
-    color:#fff;
     
+}
+.first .title h1 {
+    text-align: left;
+    padding-left: 60px;
+    color:#fff;
+}
+.first .title h1 .logo{
+    width : 50px;
+    height : 50px;
 }
 /* 분홍부분(웰컴파트) */
 .first .title {
@@ -24,17 +31,19 @@
     max-width: 100%;
     overflow: hidden;
     position: relative;
-    height: 558px;
+    height: 620px;
     text-align: center;
     list-style: none;
 }
 .first .title .are {
-    margin-top: 70px;
+    margin-top: 50px;
+    text-align: center;
     
 }
 .first .title .wel {
     margin-top: 30px;
     padding-bottom: 0PX;
+    text-align: center;
 }
 /* 흰배경시작 */
 .story {
