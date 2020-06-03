@@ -1,18 +1,38 @@
-<h2>mypage</h2>
-
-username: {{user.username}}
-<br>
-password: {{user.password}}
-<br>
-<br>
-nickname: {{user.nickname}}
-<br>
-<br>
-school: {{user.school}}
-<br>
-<br>
-phone_number: {{user.phone_number}}
-<br>
-<br>
-<br>
-<a href="{% url 'home' %} ">home</a>
+<span style = "font-family:'THE외계인설명서'; font-size: 22">
+    <html style = "background: linear-gradient(to bottom, #fce38a, #f38181)">
+    <form>
+    <!-- <body style="text-align:center"> -->
+    <br>
+        
+    <div style = "background: #95e1d3; width: 130px; padding-top:0px; padding-bottom: 0px;">
+        <h2>My Page</h2>
+    </div>
+        <h5>나의 정보를 확인해주세요.</h5>
+        <br>
+        Username: {{user.username}}
+        <!-- password: {{user.password}} -->
+        <br>
+        <br>
+        Nickname: {{user.nickname}}
+        <br>
+        <br>
+        School: {{user.school}}
+        <br>
+        <br>
+        Phone number: {{user.phone_number}}
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'home' %} ">Home</a>
+    <!-- </body> -->
+    </html>
+    </form>
+    </span>
+    
+    <style>
+        form {
+            margin: 0 auto;
+            width: 200px;
+        }
+    </style>
+    
