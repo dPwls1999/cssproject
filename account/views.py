@@ -35,3 +35,12 @@ def register_view(request):
     else:
         form = RegisterForm()
         return render(request, "account.html", {"form":form})
+
+#def userinfo(request):
+#    context = {
+#        'id': account.username,
+#        'password': account.password,
+#        'nickname': account.nickname,
+#    }
+#
+#    return render(request, "mypage.html", context=context)

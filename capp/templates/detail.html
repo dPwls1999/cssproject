@@ -1,4 +1,4 @@
-
+<h1>css project detail</h1>
 
 <div>
     <h4>카페이름 : {{css.title}}</h4><br>
@@ -14,4 +14,23 @@
     <img src="{{css.image.url}}">
 </div>
 
+
+<!-- 댓글 쓰기 -->
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ cform.as_p }}
+    <button type="submit" class="save btn btn-default" href="{%url 'detail' css.id%}">Send</button>
+</form>
+<!-- 댓글 보여주기 -->
+{% for comment in css.comments.all %}
+    <div class="comment">
+        <p><strong>{{ comment.writer }}</strong>   {{ comment.text}} {{ comment.created_date }}</p>
+        
+    </div>
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}
+
+<a href="{%url 'edit' css.id%}">수정하기</a>
+<a href="{%url 'delete' css.id%}">삭제하기</a>
 </html>
+

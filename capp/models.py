@@ -28,3 +28,13 @@ class CSS(models.Model):
 
     def summary(self):
         return self.add[:100]
+
+class Comment(models.Model):
+    post = models.ForeignKey('CSS', on_delete=models.CASCADE, related_name='comments')
+    writer = models.CharField(max_length=20)
+    text = models.TextField()
+    like = models.IntegerField(default=0)
+    dislike = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.text

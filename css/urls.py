@@ -25,10 +25,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', capp.views.home, name="home"),
     path('detail/<int:css_id>', capp.views.detail, name="detail"),
-    path('edit/', capp.views.edit, name="edit"),
-    path('mainpage/', capp.views.mainpage, name="mainpage"),
+    path('edit/<int:css_id>', capp.views.edit, name="edit"),
+    path('update/<int:css_id>', capp.views.update, name="update"),
+    path('mypage/', capp.views.mypage, name="mypage"),
     path('review/', capp.views.review, name="review"),
-    path('account/', include(account.urls)),        
+    path('account/', include(account.urls)), 
+    # path('detail/<int:css_id>', capp.views.add_comment, name='add_comment'),    
+    # path('add_comment/<int:css_id>', capp.views.add_comment, name='add_comment'),   
+    path('delete/<int:css_id>', capp.views.delete, name="delete"),
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
