@@ -2,12 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from .form import CSSForm, CommentForm
 from django.shortcuts import redirect
 from .models import CSS
-<<<<<<< HEAD
 from account.models import CustomModel
-
-=======
 from django.utils import timezone
->>>>>>> e636ee5019632a1b37e93bfa984401ec4bbcd7d7
+
 # Create your views here.
 def home(request):
     cafes = CSS.objects.all()
