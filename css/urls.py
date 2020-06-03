@@ -29,7 +29,8 @@ urlpatterns = [
     path('update/<int:css_id>', capp.views.update, name="update"),
     path('mypage/', capp.views.mypage, name="mypage"),
     path('review/', capp.views.review, name="review"),
-    path('account/', include(account.urls)),        
+    path('account/', include(account.urls)),   
+    path('delete/<int:css_id>', capp.views.delete, name="delete"),     
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

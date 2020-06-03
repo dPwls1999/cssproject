@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from .form import CSSForm
 from django.shortcuts import redirect
 from .models import CSS
+from account.models import CustomModel
+
 # Create your views here.
 def home(request):
     cafes = CSS.objects.all()
@@ -46,3 +48,13 @@ def update(request,css_id):
     edit_css.image= request.POST['image']
     edit_css.save()
     return redirect('/detail/' + str(edit_css.id))
+
+
+#def userinfo(request, username, password, nickname, school, phone_number):
+#    CustomModel(username=username, password=password, nickname=nickname, school=school, phone_number=phone_number)
+#    return render(request, 'css/mypage.html')
+
+def delete(request, css_id):
+    delete_css = get_object_or_404(CSS, pk=css_id)
+    delete_css.delete()
+    return redirect('home')
