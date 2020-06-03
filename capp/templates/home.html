@@ -18,64 +18,12 @@
     <link rel="stylesheet" href="{% static 'home.css' %}">
 </head>
 <main>
-  <!-- navbar -->
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="" style="font-family: 'THE외계인설명서'; font-size: 30px;">
-        <img src= " {%static 'css.jpg' %}" alt="" style="width: 60px; height: 60;">
-         Cafe Sharing Service  </a>
-    <div>
-        {%if user.is_authenticated %}
-    <a style="font-family: 'THE외계인설명서'" href="{%url 'logout'%}">LOGOUT</a>
-        {%else%}
-    <a style="font-family: 'THE외계인설명서';" href="{%url 'register'%}">sign up</a>
-    <a style="font-family: 'THE외계인설명서';" href="{%url 'login'%}">LOGIN</a>
-    <a style="font-family: 'THE외계인설명서';" href="{%url 'logout'%}">LOGOUT</a>
-    {%endif%}
-    
-    <a style="font-family: 'THE외계인설명서';" href="{%url 'review'%}">새 리뷰쓰기</a>
-    <br>
-    <a style="font-family: 'THE외계인설명서';" href="{%url 'mypage'%}">mypage</a>
-  </div>
-</nav>
-       
-<<<<<<< HEAD
-=======
-      
-      <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            MENU
-          </a>
-            {%if user.is_authenticated %}
-            <h3>안녕하세요 {{user.nickname}} 님</h3>
-            <a class="dropdown-item" href="{%url 'logout'%}">로그아웃</a>
-            {%else%}
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{%url 'login'%}">LOGIN</a>
-            <a class="dropdown-item" href="{%url 'logout'%}">LOGOUT</a>
-            {%endif%}
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{%url 'review'%}">새 리뷰쓰기</a>
-          </div>
-        </li>
-       
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
 
-    </div>
-  </nav> -->
-  
- 
->>>>>>> 6266b68358f44a01b31166347619261b28cbe29f
 
 <!-- login -->
   <body style="margin: 0;">
     <section style="padding: 0 0; display: block;">
-      {%if user.is_authenticated %}
-      <h3 style="font-family: 'THE외계인설명서';">안녕하세요 {{user.nickname}}님</h3>
-      {% endif %}
+
   <!-- main -->
   <!-- 분홍배경(웰컴) -->
   <section class="first">
@@ -84,6 +32,7 @@
       <!-- nav -->
       <ul class=navul>
         {%if user.is_authenticated %}
+          <h3 style="font-family: 'THE외계인설명서';">안녕하세요 {{user.nickname}}님</h3>
           <li class="ll"><a href="{%url 'logout'%}" style=" font-family: 'THE외계인설명서">LOGOUT</a></li>
         {%else%}
           <li class="ll" ><a href="{%url 'login'%}" style=" font-family: 'THE외계인설명서">LOGIN</a></li>
