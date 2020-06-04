@@ -73,8 +73,8 @@
    
     <tr>
         <th style="padding-left: 30%;">
-            <br><button style="border:none; color: black; background-color: #95e1d3;" > <a href="{%url 'edit' css.id%}">수정하기</a> </button> 
-            <button style="border:none; color: black; background-color: #95e1d3;"> <a href="{%url 'delete' css.id%}">삭제하기</a> </button> 
+            <br><button class="cafefont" style="border:none; color: black; background-color: #95e1d3;" > <a href="{%url 'edit' css.id%}">수정하기</a> </button> 
+            <button class="cafefont" style="border:none; color: black; background-color: #95e1d3;"> <a href="{%url 'delete' css.id%}">삭제하기</a> </button> 
         </th>
     </tr>
    
@@ -106,8 +106,11 @@
 <!-- 댓글 보여주기 -->
 <br><br>
 <hr>
-댓글 수: {{ css.comments.count }}<br><br>
+
+    댓글 수: {{ css.comments.count }}<br><br>
 {% for comment in css.comments.all %}
+
+
     <div class="comment">
         <p><strong>{{ comment.writer }}</strong>   {{ comment.text}} {{ comment.created_date }}</p>
         

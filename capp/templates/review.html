@@ -1,7 +1,9 @@
-{%load static%}
+
+{% load static %}
 <span style = "font-family:'THE외계인설명서'; color:rgb(12, 12, 85); font-size: 23">
 <html style = "background: linear-gradient(to bottom, #fce38a, #f38181)">
-    <form>
+    <form class="fm">
+        {% csrf_token %}
         <br>
     <!-- <body style="text-align:center"> -->
     <div style = "background: #95e1d3; width: 300px; padding-top:0px; padding-bottom: 0px;">
@@ -10,13 +12,15 @@
     <h5>카페 후기에 대한 내용을 해주세요.</h5>
 
     <body style="text-align:center">
-        <form method="POST" enctype="multipart/form-data"> 
-            {% csrf_token %}
+        <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
             <table style="font-size: 22; color:rgb(12, 12, 85);">
                 {{form.as_table}}
             </table>
             <br>
-            <input class="btn btn-dark" type="submit" value="등록">
+            <!-- <a href="{% url 'review' %}"><img src="{% static 'register.png' %}"></a> -->
+            <!-- <button style="border:none; color: black; background-color: #95e1d3;" ><a href="{% url 'review' %}">게시물 등록</a></button> -->
+            <button style="border:none; color: black; background-color: #95e1d3;" >게시물 등록</button>
         </form>
     <body>
 
@@ -27,7 +31,7 @@
 </html>
 
 <style>
-    form {
+    .fm {
         margin: 0 auto;
         width: 300px;
     }
