@@ -5,6 +5,9 @@ from .models import CSS
 from account.models import CustomModel
 from django.utils import timezone
 
+
+
+
 # Create your views here.
 def home(request):
     cafes = CSS.objects.all()
@@ -26,20 +29,41 @@ def detail(request,css_id):
 def mypage(request):
     return render(request, 'mypage.html')
 
+# def edit(request, css_id):
+#     css = get_object_or_404(CSS, pk = css_id)
+#     return render(request, 'edit.html', {'css':css})
 def edit(request, css_id):
     css = get_object_or_404(CSS, pk = css_id)
-    return render(request, 'edit.html', {'css':css})
-
-def review(request):
     if request.method == 'POST': 
         form = CSSForm(request.POST, request.FILES)
         if form.is_valid():
-            form.created_date = timezone.datetime.now()
-            form.save()
-            return redirect('home')
+            print(form.cleaned_data)
+            css.title=form.cleaned_data['title']
+            css.area= form.cleaned_data['area']
+            css.time= form.cleaned_data['time']
+            css.mood= form.cleaned_data['mood']
+            css.floor=form.cleaned_data['floor']
+            css.toilet=form.cleaned_data['toilet']
+            css.smoke=form.cleaned_data['smoke']
+            css.elevator=form.cleaned_data['elevator']
+            css.pet= form.cleaned_data['pet']
+            css.add= form.cleaned_data['add']
+            css.image=form.cleaned_data['image']
+            css.save()
+            return redirect('/detail/'+ str(css.id))
+    else:
+        form = CSSForm(instance = css)
+        return render(request, 'edit.html', {'css':css, 'form':form})
+
+def review(request):
+    if request.method == 'POST': 
+        cform = CSSForm(request.POST, request.FILES)
+        if cform.is_valid():
+            cform.save() 
+        return redirect('home')
     else:         
         form = CSSForm()
-    return render(request, 'review.html',{'form': form} )
+        return render(request, 'review.html',{'form': form} )
 
 def update(request,css_id):
     edit_css = get_object_or_404(CSS, pk=css_id)

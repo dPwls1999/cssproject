@@ -37,9 +37,11 @@
       <ul class="navul">
         {%if user.is_authenticated %}
           <li class="ll">안녕하세요 {{user.nickname}}님</li>
+          <li class="ll"><a href="{%url 'mypage'%}" style="color:#fff; font-size: medium;">MY PAGE</a></li>
           <li class="ll"><a href="{%url 'logout'%}" style=" color:#fff;">LOGOUT</a></li>
           
         {%else%}
+          <li class="ll" ><a href="{%url 'register'%}" style="color:#fff; font-size: medium;">SIGN UP</a></li>
           <li class="ll" ><a href="{%url 'login'%}" style=" color:#fff;">LOGIN</a></li>
           <li class="ll"><a href="{%url 'logout'%}" style=" color:#fff;">LOGOUT</a></li>
         {%endif%}

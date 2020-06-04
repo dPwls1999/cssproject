@@ -1,13 +1,26 @@
-<span style = "font-family:'THE외계인설명서'; font-size: 22">
+<style>
+    form {
+        /* margin: 0 auto; */
+        width: 550px;
+        height: 700px;
+    }
+    @font-face { font-family: 'Cafe24Simplehae'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Simplehae.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+    .f{
+        font-family: 'Cafe24Simplehae';
+    }
+
+</style>
+
     <html style = "background: linear-gradient(to bottom, #fce38a, #f38181)">
-    <form>
+    <form class="f" style="text-align: center;">
     <!-- <body style="text-align:center"> -->
     <br>
         
-    <div style = "background: #95e1d3; width: 130px; padding-top:0px; padding-bottom: 0px;">
+    <div style = "text-align:center; background-color: #95e1d3; width: 180px; padding-top:0px; padding-bottom: 0px;">
         <h2>My Page</h2>
     </div>
-        <h5>나의 정보를 확인해주세요.</h5>
+        <h5 style="text-align: center;">나의 정보를 확인해주세요.</h5>
         <br>
         Username: {{user.username}}
         <!-- password: {{user.password}} -->
@@ -23,8 +36,9 @@
         <br>
         <br>
         <br>
-        <a href="{% url 'home' %} ">Home</a>
+        <button style="border:none; color: black; background-color: #95e1d3;" ><a href="{% url 'home' %} ">Home</a></button>
     <!-- </body> -->
+    
     </html>
     </form>
     </span>

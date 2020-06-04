@@ -14,7 +14,6 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 return redirect('home')
-
     else:
         form = LoginForm()
         return render(request, "account.html", {"form":form})
